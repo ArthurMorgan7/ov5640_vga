@@ -5,14 +5,15 @@ input wire [15:0] pix_data , //输入像素点色彩信息
 
 output wire [9:0] pix_x , //输出有效显示区域像素点X轴坐标
 output wire [9:0] pix_y , //输出有效显示区域像素点Y轴坐标
+
 output wire hsync , //输出行同步信号
 output wire vsync , //输出场同步信号
- output wire [15:0] rgb //输出像素点色彩信息
+output wire [15:0] rgb //输出像素点色彩信息
 
  );
 
  ////
- //\* Parameter and Internal Signal \//
+ //\* 声明参数 \//
  ////
 
  //parameter define
@@ -45,51 +46,48 @@ output wire vsync , //输出场同步信号
 
  //cnt_h:行同步信号计数器
  always@(posedge vga_clk or negedge sys_rst_n)
- if(sys_rst_n == 1'b0)
- cnt_h <= 10'd0 ;
- else if(cnt_h == H_TOTAL - 1'd1)
- cnt_h <= 10'd0 ;
- else
- cnt_h <= cnt_h + 1'd1 ;
+    if(sys_rst_n == 1'b0)   // 触发重置信号
+        cnt_h <= 10'd0 ;
+    else if(cnt_h == H_TOTAL - 1'd1)    // 扫描到一行的最后一个像素
+        cnt_h <= 10'd0 ;    // 下一行的头开始
+    else
+        cnt_h <= cnt_h + 1'd1 ; // 正常计数，向同一行的下一个像素扫描
 
  //hsync:行同步信号
- assign hsync = (cnt_h <= H_SYNC - 1'd1) ? 1'b1 : 1'b0 ;
+ assign hsync = (cnt_h <= H_SYNC - 1'd1) ? 1'b1 : 1'b0 ;    // 扫描完一行，hsync拉高
 
  //cnt_v:场同步信号计数器
  always@(posedge vga_clk or negedge sys_rst_n)
- if(sys_rst_n == 1'b0)
- cnt_v <= 10'd0 ;
- else if((cnt_v == V_TOTAL - 1'd1) && (cnt_h == H_TOTAL-1'd1))
- cnt_v <= 10'd0 ;
- else if(cnt_h == H_TOTAL - 1'd1)
- cnt_v <= cnt_v + 1'd1 ;
- else
- cnt_v <= cnt_v ;
+    if(sys_rst_n == 1'b0)
+        cnt_v <= 10'd0 ;
+    else if((cnt_v == V_TOTAL - 1'd1) && (cnt_h == H_TOTAL-1'd1)) // 扫描到最后一个像素点
+        cnt_v <= 10'd0 ;    // 重新开始
+    else if(cnt_h == H_TOTAL - 1'd1) // 一行扫描结束，场计数+1
+        cnt_v <= cnt_v + 1'd1 ;
+    else
+        cnt_v <= cnt_v ;    // 正常计数，场信号计数不变，仍在扫描当前行
 
  //vsync:场同步信号
- assign vsync = (cnt_v <= V_SYNC - 1'd1) ? 1'b1 : 1'b0 ;
+ assign vsync = (cnt_v <= V_SYNC - 1'd1) ? 1'b1 : 1'b0 ;    // 所有行扫描完，vsync拉高
+
 
  //rgb_valid:VGA有效显示区域
- assign rgb_valid = (((cnt_h >= H_SYNC + H_BACK + H_LEFT)
- && (cnt_h < H_SYNC + H_BACK + H_LEFT + H_VALID))
- &&((cnt_v >= V_SYNC + V_BACK + V_TOP)
- && (cnt_v < V_SYNC + V_BACK + V_TOP + V_VALID)))
- ? 1'b1 : 1'b0;
-
- //pix_data_req:像素点色彩信息请求信号,超前rgb_valid信号一个时钟周期
- assign pix_data_req = (((cnt_h >= H_SYNC + H_BACK + H_LEFT - 1'b1)
- && (cnt_h<H_SYNC + H_BACK + H_LEFT + H_VALID - 1'b1))
- &&((cnt_v >= V_SYNC + V_BACK + V_TOP)
- && (cnt_v < V_SYNC + V_BACK + V_TOP + V_VALID)))
- ? 1'b1 : 1'b0;
-
- //pix_x,pix_y:VGA有效显示区域像素点坐标
- assign pix_x = (pix_data_req == 1'b1)
- ? (cnt_h - (H_SYNC + H_BACK + H_LEFT - 1'b1)) : 10'h3ff;
- assign pix_y = (pix_data_req == 1'b1)
- ? (cnt_v - (V_SYNC + V_BACK + V_TOP)) : 10'h3ff;
+ assign rgb_valid = ( ((cnt_h >= H_SYNC + H_BACK + H_LEFT) && (cnt_h < H_SYNC + H_BACK + H_LEFT + H_VALID)) // 行同步信号在有效显示区域内
+                   &&( (cnt_v >= V_SYNC + V_BACK + V_TOP) && (cnt_v < V_SYNC + V_BACK + V_TOP + V_VALID)) ) // 场同步信号在有效显示区域内
+ ? 1'b1 : 1'b0; // 行和场都在有效显示区域内，rgb_valid为1
 
  //rgb:输出像素点色彩信息
  assign rgb = (rgb_valid == 1'b1) ? pix_data : 16'b0 ;
+
+ //pix_data_req:像素点色彩信息请求信号,超前rgb_valid信号一个时钟周期
+ // assign pix_data_req = (((cnt_h >= H_SYNC + H_BACK + H_LEFT - 1'b1) && (cnt_h<H_SYNC + H_BACK + H_LEFT + H_VALID - 1'b1))
+ //                      &&((cnt_v >= V_SYNC + V_BACK + V_TOP) && (cnt_v < V_SYNC + V_BACK + V_TOP + V_VALID)))
+ // ? 1'b1 : 1'b0;
+
+ //pix_x,pix_y:VGA有效显示区域像素点坐标
+ // assign pix_x = (pix_data_req == 1'b1) ? (cnt_h - (H_SYNC + H_BACK + H_LEFT - 1'b1)) : 10'h3ff; // 有效像素点的x轴坐标
+ // assign pix_y = (pix_data_req == 1'b1) ? (cnt_v - (V_SYNC + V_BACK + V_TOP)) : 10'h3ff; // 有效像素点的y轴坐标
+
+ 
 
  endmodule

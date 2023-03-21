@@ -31,35 +31,36 @@ reg [7:0] reg_num ; //配置寄存器个数
 
 //cnt_wait:寄存器配置等待计数器
 always@(posedge sys_clk or negedge sys_rst_n)
-if(sys_rst_n == 1'b0)
-cnt_wait <= 15'd0;
-else if(cnt_wait < CNT_WAIT_MAX)
-cnt_wait <= cnt_wait + 1'b1;
-
-//reg_num:配置寄存器个数
-always@(posedge sys_clk or negedge sys_rst_n)
-if(sys_rst_n == 1'b0)
-reg_num <= 8'd0;
-else if(cfg_end == 1'b1)
-reg_num <= reg_num + 1'b1;
+    if(sys_rst_n == 1'b0)   // 触发重置信号
+        cnt_wait <= 15'd0;  // 等待时间重置，重新计数
+    else if(cnt_wait < CNT_WAIT_MAX)    // 没有计数指定时间
+        cnt_wait <= cnt_wait + 1'b1;    // 继续计数，每一个上升沿计数+1
 
 //cfg_start:单个寄存器配置触发信号
 always@(posedge sys_clk or negedge sys_rst_n)
-if(sys_rst_n == 1'b0)
-cfg_start <= 1'b0;
-else if(cnt_wait == (CNT_WAIT_MAX - 1'b1))
-cfg_start <= 1'b1;
-else if((cfg_end == 1'b1) && (reg_num < REG_NUM))
-cfg_start <= 1'b1;
-else
-cfg_start <= 1'b0;
+    if(sys_rst_n == 1'b0)
+        cfg_start <= 1'b0;
+    else if(cnt_wait == (CNT_WAIT_MAX - 1'b1))  // 等待时间到头，可以开始下一个寄存器配置
+        cfg_start <= 1'b1;
+    else if((cfg_end == 1'b1) && (reg_num < REG_NUM))   // 上个寄存器配置完成，也可以开始下一个寄存器配置
+        cfg_start <= 1'b1;
+    else
+        cfg_start <= 1'b0;  // 都不满足，继续等待
+
+//reg_num:配置寄存器个数
+always@(posedge sys_clk or negedge sys_rst_n)
+    if(sys_rst_n == 1'b0)
+        reg_num <= 8'd0;
+    else if(cfg_end == 1'b1)    // 如果单个寄存器配置完成
+        reg_num <= reg_num + 1'b1;  // 完成个数 +1
 
 //cfg_done:寄存器配置完成
 always@(posedge sys_clk or negedge sys_rst_n)
-if(sys_rst_n == 1'b0)
-cfg_done <= 1'b0;
-else if((reg_num == REG_NUM) && (cfg_end == 1'b1))
-cfg_done <= 1'b1;
+    if(sys_rst_n == 1'b0)
+        cfg_done <= 1'b0;
+    else if((reg_num == REG_NUM) && (cfg_end == 1'b1))  // 寄存器完成个数达到指定个数，且等最后一个寄存器配置完成
+        cfg_done <= 1'b1;   // cfg_done 拉高，表示所有寄存器计数完成。
+
 
 //cfg_data:ID,REG_ADDR,REG_VAL
 assign cfg_data = (cfg_done == 1'b1) ? 24'b0 : cfg_data_reg[reg_num];

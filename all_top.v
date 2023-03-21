@@ -81,20 +81,20 @@ clk_gen clk_gen_inst(
 //------------- ov5640_top_inst -------------
 ov5640_top ov5640_top_inst(
 
-.sys_clk (clk_25m ), //系统时钟
-.sys_rst_n (rst_n ), //复位信号
-.sys_init_done (sys_init_done ), //系统初始化完成(SDRAM + 摄像头)
+    .sys_clk (clk_25m ), //系统时钟
+    .sys_rst_n (rst_n ), //复位信号
+    .sys_init_done (sys_init_done ), //系统初始化完成(SDRAM + 摄像头)
 
-.ov5640_pclk (ov5640_pclk ), //摄像头像素时钟
-.ov5640_href (ov5640_href ), //摄像头行同步信号
-.ov5640_vsync (ov5640_vsync ), //摄像头场同步信号
-.ov5640_data (ov5640_data ), //摄像头图像数据
+    .ov5640_pclk (ov5640_pclk ), //摄像头像素时钟
+    .ov5640_href (ov5640_href ), //摄像头行同步信号
+    .ov5640_vsync (ov5640_vsync ), //摄像头场同步信号
+    .ov5640_data (ov5640_data ), //摄像头图像数据
 
-.cfg_done (cfg_done ), //寄存器配置完成
-.sccb_scl (sccb_scl ), //SCL
-.sccb_sda (sccb_sda ), //SDA
-.ov5640_wr_en (wr_en ), //图像数据有效使能信号
-.ov5640_data_out (wr_data ) //图像数据
+    .cfg_done (cfg_done ), //寄存器配置完成
+    .sccb_scl (sccb_scl ), //SCL
+    .sccb_sda (sccb_sda ), //SDA
+    .ov5640_wr_en (wr_en ), //图像数据有效使能信号
+    .ov5640_data_out (wr_data ) //图像数据
 
 );
 

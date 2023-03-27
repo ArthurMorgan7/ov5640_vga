@@ -1,0 +1,105 @@
+m255
+K3
+13
+cModel Technology
+Z0 dF:\CODE\ov5640_vga\prj\simulation\modelsim
+vi2c_ctrl
+I<21<@mQ=_gEZGPcf<`BA31
+VDN31boM=d00Qii@cX=_Qm1
+Z1 dF:\CODE\ov5640_vga\prj\simulation\modelsim
+w1679891129
+8F:/CODE/ov5640_vga/rtl/ov5640/ov5640_ctrl/i2c_ctrl.v
+FF:/CODE/ov5640_vga/rtl/ov5640/ov5640_ctrl/i2c_ctrl.v
+L0 1
+Z2 OV;L;10.1d;51
+r1
+31
+Z3 o-vlog01compat -work work -O0
+Z4 !s92 -vlog01compat -work work +incdir+F:/CODE/ov5640_vga/rtl/ov5640/ov5640_ctrl -O0
+!i10b 1
+!s100 L?IbJZif:SZ;8`=RbzdmQ0
+!s85 0
+!s108 1679891189.008000
+!s107 F:/CODE/ov5640_vga/rtl/ov5640/ov5640_ctrl/i2c_ctrl.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+F:/CODE/ov5640_vga/rtl/ov5640/ov5640_ctrl|F:/CODE/ov5640_vga/rtl/ov5640/ov5640_ctrl/i2c_ctrl.v|
+!s101 -O0
+vov5640_cfg
+IkSLFYzQeN1PB92z;]5YKS0
+VNF2hObfaKl3JzNeKC?L4:2
+R1
+w1679491989
+8F:/CODE/ov5640_vga/rtl/ov5640/ov5640_ctrl/ov5640_cfg.v
+FF:/CODE/ov5640_vga/rtl/ov5640/ov5640_ctrl/ov5640_cfg.v
+L0 1
+R2
+r1
+31
+R3
+R4
+!i10b 1
+!s100 blkdQ]:0m_UF0B`6]FAWC0
+!s85 0
+!s108 1679891188.891000
+!s107 F:/CODE/ov5640_vga/rtl/ov5640/ov5640_ctrl/ov5640_cfg.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+F:/CODE/ov5640_vga/rtl/ov5640/ov5640_ctrl|F:/CODE/ov5640_vga/rtl/ov5640/ov5640_ctrl/ov5640_cfg.v|
+!s101 -O0
+vov5640_data
+I@oU]@kNUPTcbIX]Q7UTj22
+V6JlMKSM^]I:Vi5cdnIRO`2
+R1
+w1679585499
+8F:/CODE/ov5640_vga/rtl/ov5640/ov5640_ctrl/ov5640_data.v
+FF:/CODE/ov5640_vga/rtl/ov5640/ov5640_ctrl/ov5640_data.v
+L0 1
+R2
+r1
+31
+R3
+R4
+!i10b 1
+!s100 Q=j=JD43W5df8T=<2_PaG3
+!s85 0
+!s108 1679891188.805000
+!s107 F:/CODE/ov5640_vga/rtl/ov5640/ov5640_ctrl/ov5640_data.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+F:/CODE/ov5640_vga/rtl/ov5640/ov5640_ctrl|F:/CODE/ov5640_vga/rtl/ov5640/ov5640_ctrl/ov5640_data.v|
+!s101 -O0
+vov5640_top
+IdRKN_a_zQo;e:fmI4Nc6a1
+V24^meIgmB]E>1=DB4XT8S1
+R1
+w1679043255
+8F:/CODE/ov5640_vga/rtl/ov5640/ov5640_top.v
+FF:/CODE/ov5640_vga/rtl/ov5640/ov5640_top.v
+L0 1
+R2
+r1
+31
+R3
+!i10b 1
+!s100 _NaQg>4f>P8R9o4NUWeAn0
+!s85 0
+!s108 1679891189.095000
+!s107 F:/CODE/ov5640_vga/rtl/ov5640/ov5640_top.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+F:/CODE/ov5640_vga/rtl/ov5640|F:/CODE/ov5640_vga/rtl/ov5640/ov5640_top.v|
+!s101 -O0
+!s92 -vlog01compat -work work +incdir+F:/CODE/ov5640_vga/rtl/ov5640 -O0
+vtb_ov5640_top
+!i10b 1
+!s100 [i`<;W[CKO_6KfbK41MWc2
+IM;m<eN;5kflokRfYVVPmZ2
+VSQgEA9hI3^H7zA>MZig9U2
+R1
+w1679890953
+8F:/CODE/ov5640_vga/prj/../sim/tb_ov5640_top.v
+FF:/CODE/ov5640_vga/prj/../sim/tb_ov5640_top.v
+L0 20
+R2
+r1
+!s85 0
+31
+!s108 1679891189.199000
+!s107 F:/CODE/ov5640_vga/prj/../sim/tb_ov5640_top.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+F:/CODE/ov5640_vga/prj/../sim|F:/CODE/ov5640_vga/prj/../sim/tb_ov5640_top.v|
+!s101 -O0
+R3
+!s92 -vlog01compat -work work +incdir+F:/CODE/ov5640_vga/prj/../sim -O0

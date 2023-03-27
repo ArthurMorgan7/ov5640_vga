@@ -1,0 +1,61 @@
+# Reading E:/Quartus2/modelsim_ase/tcl/vsim/pref.tcl 
+# do ov5640_vga_run_msim_rtl_verilog.do 
+# if {[file exists rtl_work]} {
+# 	vdel -lib rtl_work -all
+# }
+# vlib rtl_work
+# vmap work rtl_work
+# Copying E:\Quartus2\modelsim_ase\win32aloem/../modelsim.ini to modelsim.ini
+# Modifying modelsim.ini
+# ** Warning: Copied E:\Quartus2\modelsim_ase\win32aloem/../modelsim.ini to modelsim.ini.
+#          Updated modelsim.ini.
+# 
+# vlog -vlog01compat -work work +incdir+F:/CODE/ov5640_vga/rtl/ov5640/ov5640_ctrl {F:/CODE/ov5640_vga/rtl/ov5640/ov5640_ctrl/ov5640_data.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module ov5640_data
+# 
+# Top level modules:
+# 	ov5640_data
+# vlog -vlog01compat -work work +incdir+F:/CODE/ov5640_vga/rtl/ov5640/ov5640_ctrl {F:/CODE/ov5640_vga/rtl/ov5640/ov5640_ctrl/ov5640_cfg.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module ov5640_cfg
+# 
+# Top level modules:
+# 	ov5640_cfg
+# vlog -vlog01compat -work work +incdir+F:/CODE/ov5640_vga/rtl/ov5640/ov5640_ctrl {F:/CODE/ov5640_vga/rtl/ov5640/ov5640_ctrl/i2c_ctrl.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module i2c_ctrl
+# 
+# Top level modules:
+# 	i2c_ctrl
+# vlog -vlog01compat -work work +incdir+F:/CODE/ov5640_vga/rtl/ov5640 {F:/CODE/ov5640_vga/rtl/ov5640/ov5640_top.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module ov5640_top
+# 
+# Top level modules:
+# 	ov5640_top
+# 
+# vlog -vlog01compat -work work +incdir+F:/CODE/ov5640_vga/prj/../sim {F:/CODE/ov5640_vga/prj/../sim/tb_ov5640_top.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module tb_ov5640_top
+# 
+# Top level modules:
+# 	tb_ov5640_top
+# 
+# vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cycloneiv_hssi_ver -L cycloneiv_pcie_hip_ver -L cycloneiv_ver -L rtl_work -L work -voptargs="+acc"  tb_ov5640_top
+# vsim -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cycloneiv_hssi_ver -L cycloneiv_pcie_hip_ver -L cycloneiv_ver -L rtl_work -L work -voptargs=\"+acc\" -t 1ps tb_ov5640_top 
+# Loading work.tb_ov5640_top
+# Loading work.ov5640_top
+# Loading work.i2c_ctrl
+# Loading work.ov5640_cfg
+# Loading work.ov5640_data
+# ** Warning: (vsim-3015) F:/CODE/ov5640_vga/rtl/ov5640/ov5640_top.v(61): [PCDPC] - Port size (16 or 16) does not match connection size (8) for port 'byte_addr'. The port definition is at: F:/CODE/ov5640_vga/rtl/ov5640/ov5640_ctrl/i2c_ctrl.v(16).
+# 
+#         Region: /tb_ov5640_top/ov5640_top_inst/i2c_ctrl_inst
+# 
+# add wave *
+# view structure
+# .main_pane.structure.interior.cs.body.struct
+# view signals
+# .main_pane.objects.interior.cs.body.tree
+# run -all

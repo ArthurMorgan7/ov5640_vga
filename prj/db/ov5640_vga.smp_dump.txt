@@ -1,0 +1,19 @@
+
+State Machine - |ov5640_top|i2c_ctrl:i2c_ctrl_inst|state
+Name state.STOP state.N_ACK state.RD_DATA state.ACK_5 state.SEND_RD_ADDR state.START_2 state.ACK_4 state.WR_DATA state.ACK_3 state.SEND_B_ADDR_L state.ACK_2 state.SEND_B_ADDR_H state.ACK_1 state.SEND_D_ADDR state.START_1 state.IDLE 
+state.IDLE 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+state.START_1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 
+state.SEND_D_ADDR 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 1 
+state.ACK_1 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 1 
+state.SEND_B_ADDR_H 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 
+state.ACK_2 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 1 
+state.SEND_B_ADDR_L 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 1 
+state.ACK_3 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 1 
+state.WR_DATA 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 
+state.ACK_4 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1 
+state.START_2 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 1 
+state.SEND_RD_ADDR 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 1 
+state.ACK_5 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 1 
+state.RD_DATA 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 1 
+state.N_ACK 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+state.STOP 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 

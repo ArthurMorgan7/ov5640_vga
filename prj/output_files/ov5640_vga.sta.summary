@@ -1,0 +1,113 @@
+------------------------------------------------------------
+TimeQuest Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Slow 1200mV 85C Model Setup 'i2c_ctrl:i2c_ctrl_inst|i2c_clk'
+Slack : -1.656
+TNS   : -28.609
+
+Type  : Slow 1200mV 85C Model Setup 'sys_clk'
+Slack : -1.380
+TNS   : -7.445
+
+Type  : Slow 1200mV 85C Model Setup 'ov5640_pclk'
+Slack : -0.522
+TNS   : -9.744
+
+Type  : Slow 1200mV 85C Model Hold 'sys_clk'
+Slack : -0.168
+TNS   : -0.168
+
+Type  : Slow 1200mV 85C Model Hold 'i2c_ctrl:i2c_ctrl_inst|i2c_clk'
+Slack : 0.355
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'ov5640_pclk'
+Slack : 0.355
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'ov5640_pclk'
+Slack : -3.000
+TNS   : -35.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'sys_clk'
+Slack : -3.000
+TNS   : -12.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'i2c_ctrl:i2c_ctrl_inst|i2c_clk'
+Slack : -1.000
+TNS   : -26.000
+
+Type  : Slow 1200mV 0C Model Setup 'i2c_ctrl:i2c_ctrl_inst|i2c_clk'
+Slack : -1.398
+TNS   : -23.344
+
+Type  : Slow 1200mV 0C Model Setup 'sys_clk'
+Slack : -1.122
+TNS   : -5.612
+
+Type  : Slow 1200mV 0C Model Setup 'ov5640_pclk'
+Slack : -0.372
+TNS   : -6.431
+
+Type  : Slow 1200mV 0C Model Hold 'sys_clk'
+Slack : -0.140
+TNS   : -0.140
+
+Type  : Slow 1200mV 0C Model Hold 'i2c_ctrl:i2c_ctrl_inst|i2c_clk'
+Slack : 0.310
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'ov5640_pclk'
+Slack : 0.310
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'ov5640_pclk'
+Slack : -3.000
+TNS   : -35.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'sys_clk'
+Slack : -3.000
+TNS   : -12.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'i2c_ctrl:i2c_ctrl_inst|i2c_clk'
+Slack : -1.000
+TNS   : -26.000
+
+Type  : Fast 1200mV 0C Model Setup 'i2c_ctrl:i2c_ctrl_inst|i2c_clk'
+Slack : -0.470
+TNS   : -5.521
+
+Type  : Fast 1200mV 0C Model Setup 'sys_clk'
+Slack : -0.332
+TNS   : -0.613
+
+Type  : Fast 1200mV 0C Model Setup 'ov5640_pclk'
+Slack : 0.160
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'sys_clk'
+Slack : -0.165
+TNS   : -0.165
+
+Type  : Fast 1200mV 0C Model Hold 'i2c_ctrl:i2c_ctrl_inst|i2c_clk'
+Slack : 0.170
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'ov5640_pclk'
+Slack : 0.186
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'ov5640_pclk'
+Slack : -3.000
+TNS   : -36.039
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'sys_clk'
+Slack : -3.000
+TNS   : -12.243
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'i2c_ctrl:i2c_ctrl_inst|i2c_clk'
+Slack : -1.000
+TNS   : -26.000
+
+------------------------------------------------------------
